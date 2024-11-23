@@ -102,6 +102,7 @@ jobs:
       - run: |
           az containerapp create --name <YourAppName> --resource-group <YourResourceGroup> --image <container-registry-name>.azurecr.io/${{ env.IMAGE_NAME }} --cpu 0.5 --memory 1.0Gi --min-replicas 1 --max-replicas 3 --target-port 80 --ingress 'external'
           exit 0  # Garante que este job sempre finaliza com sucesso
+          #
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
         continue-on-error: true  # Continua mesmo se o login falhar
